@@ -1,0 +1,93 @@
+<div class="list row">
+    <div class="col-md-8">
+      <div class="input-group mb-4">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search by Title"
+          [(ngModel)]="Title"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="searchByTitle()"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h4>Movies List</h4>
+      <table class="table">
+
+      <thead>
+
+        <tr>
+            <th>#ID</th>         
+
+          <th>Title</th>
+          <th>Director</th>
+          <th>Rate</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let movie of movies; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setCurrentMovie(movie, i)"
+        >
+            <td scope="row">{{movie.id}}</td>
+            <td class="">{{movie.title}}</td>
+            <td class="">{{movie.director}}</td> 
+            <td class="">{{movie.rate}}</td> 
+            <td class="">{{movie.date}}</td> 
+    </tr>
+
+    </tbody>
+
+    </table>
+  
+      <button class="m-4 btn btn-sm btn-danger" (click)="deleteAllMovies()">
+        Delete All
+      </button>
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="currentMovie">
+        <h4>Movie</h4>
+        <div>
+          <label><strong>Title:</strong></label> 
+        </div>
+        <div>
+          <label><strong>Description:</strong></label>
+  
+        </div>
+        <div>
+            <label><strong>Director:</strong></label>    
+          </div>
+        <div>
+        <div>
+            <label><strong>Date:</strong></label>    
+            </div>
+        <div>
+        <div>
+            <label><strong>Rate:</strong></label>    
+            </div>
+        <div>
+        <!-- <label><strong>Status:</strong></label> -->
+  
+        </div>
+  
+        <a class="badge badge-warning" routerLink="/movies/">
+          Edit
+        </a>
+      </div>
+  
+      <div *ngIf="!currentMovie">
+        <br />
+        <p>Please click on a movie</p>
+      </div>
+    </div>
+  </div>
