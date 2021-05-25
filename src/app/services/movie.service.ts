@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const baseURL = 'https://localhost:52551/api/Movies';
+const baseURL = 'https://localhost:55137/api/Movies';
 
 @Injectable({
   providedIn: 'root'
@@ -37,7 +37,7 @@ export class MovieService {
   }
 
   searchByTitle(Title): Observable<any> {
-    return this.httpClient.get(`${baseURL}?title=${Title}`);
+    return this.httpClient.get(`${baseURL}/Search/${Title}`);
   }
 
 }

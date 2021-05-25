@@ -43,37 +43,37 @@
             <td class="">{{movie.title}}</td>
             <td class="">{{movie.director}}</td> 
             <td class="">{{movie.rate}}</td> 
-            <td class="">{{movie.date}}</td> 
+            <td class="">{{movie.date | date:'MMM d,y'}}</td> 
     </tr>
 
     </tbody>
 
     </table>
   
-      <button class="m-4 btn btn-sm btn-danger" (click)="deleteAllMovies()">
+      <!-- <button class="m-4 btn btn-sm btn-danger" (click)="deleteAllMovies()">
         Delete All
-      </button>
+      </button> -->
     </div>
     <div class="col-md-6">
       <div *ngIf="currentMovie">
         <h4>Movie</h4>
         <div>
-          <label><strong>Title:</strong></label> 
+          <label><strong>Title:</strong> {{ currentMovie.title}}</label> 
         </div>
         <div>
-          <label><strong>Description:</strong></label>
+          <label><strong>Description:</strong>  {{ currentMovie.description}}</label>
   
         </div>
         <div>
-            <label><strong>Director:</strong></label>    
+            <label><strong>Director:</strong>  {{ currentMovie.director}}</label>    
           </div>
         <div>
         <div>
-            <label><strong>Date:</strong></label>    
+            <label><strong>Date:</strong>  {{ currentMovie.date | date:'MMM d,y'}}</label>    
             </div>
         <div>
         <div>
-            <label><strong>Rate:</strong></label>    
+            <label><strong>Rate:</strong>  {{ currentMovie.rate}}</label>    
             </div>
         <div>
         <!-- <label><strong>Status:</strong></label> -->
