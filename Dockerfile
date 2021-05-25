@@ -1,8 +1,8 @@
-FROM node:12-alpine as build
+FROM node:14-alpine as build
 
 WORKDIR /app
 
-COPY package.json .
+COPY package.json package-lock.json ./
 
 RUN npm install 
 
@@ -12,4 +12,4 @@ RUN npm run build --prod
 
 FROM nginx:1.17.1-alpine 
 
-COPY --from=build /app/docs /usr/share/nginx/html
+COPY --from=build /app/dist/moviesfront /usr/share/nginx/html
